@@ -1,0 +1,6 @@
+--Activity7
+SELECT SUM(purchase_amount) "Total purchase amount" from orders;
+SELECT AVG(purchase_amount) "Average purchase amount" from orders;
+SELECT MAX(purchase_amount) "Maximum purchase amount" from orders;
+SELECT MIN(purchase_amount) "Minimum purchase amount" from orders;
+SELECT COUNT(DISTINCT salesman_id) "Number of Salesman" from orders;

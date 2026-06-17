@@ -1,0 +1,18 @@
+--Activity9
+SELECT c1.customer_name "CUSTOMER NAME", s1.salesman_name "SALESMAN NAME" from customers c1 
+inner join 
+salesman s1 on s1.SALESMAN_ID=c1.SALESMAN_ID;
+SELECT c1.customer_name "CUSTOMER NAME" from customers c1 
+inner join 
+salesman s1 on s1.SALESMAN_ID=c1.SALESMAN_ID 
+WHERE c1.grade<300
+order by c1.customer_name ASC;
+SELECT c1.customer_name "CUSTOMER NAME", c1.city, s1.salesman_name AS "Salesman", commission from customers c1 
+inner join 
+salesman s1 on s1.SALESMAN_ID=c1.SALESMAN_ID 
+WHERE commission>12;
+SELECT o1.order_no "ORDER NUMBER",o1.order_date "ORDER DATE", o1.purchase_amount "PURCHASE AMOUNT", 
+s1.commission "Commission RATE",s1.SALESMAN_NAME "SALESMAN NAME",c1.customer_name "CUSTOMER NAME", c1.grade
+from orders o1
+inner join customers c1 on o1.customer_id=c1.customer_id inner join
+salesman s1 on s1.SALESMAN_ID=c1.SALESMAN_ID;
