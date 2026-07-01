@@ -29,7 +29,7 @@ public class Activity1Stepdefinition {
 
 	@Then("they are redirected to another page")
 	public void thenFunctionName() {
-		wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.xpath("//h1[contains(@text(), 'About Us')"))));
+		wait.until(ExpectedConditions.invisibilityOf(driver.findElement(By.xpath("//h1"))));
 		System.out.println("New page title is "+driver.getTitle());
 		assertEquals(driver.getTitle(),"About Training Support");
 	}
