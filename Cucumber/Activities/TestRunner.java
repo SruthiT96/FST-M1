@@ -9,7 +9,7 @@ import io.cucumber.junit.platform.engine.Constants;
 
 @Suite
 @IncludeEngines("cucumber")
-@SelectClasspathResource("Features")
+@SelectClasspathResource("feature")
 @ConfigurationParameter(
   key = Constants.GLUE_PROPERTY_NAME, value = "stepDefinitions"
 )
