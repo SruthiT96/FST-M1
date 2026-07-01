@@ -64,6 +64,6 @@ public class Activity3StepDefinition {
 	
 	@And("Read the result text")
 	public void readResultText() {
-		System.out.println(driver.findElement(By.xpath("//p[@id, 'result']")).getText());
+		System.out.println(driver.findElement(By.xpath("//*[@id=\"result\"]")).getText());
 	}
 }
