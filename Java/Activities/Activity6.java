@@ -9,11 +9,10 @@ public class Activity6 {
             Plane plane = new Plane(10);
 
             // Add passengers
-            plane.onboard("Aanchal");
-            plane.onboard("Rahul");
-            plane.onboard("Priya");
-            plane.onboard("Karan");
-
+            plane.onboard("Sruthi");
+            plane.onboard("Kalyan");
+            plane.onboard("Sravya");
+           
             // Take off
             System.out.println("Plane took off at: " + plane.takeOff());
 
