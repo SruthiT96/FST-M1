@@ -1,0 +1,21 @@
+
+SELECT * FROM orders WHERE salesman_id = (
+    SELECT salesman_id FROM customer WHERE customer_id = 3007);
+
+
+SELECT * FROM orders WHERE salesman_id IN (
+    SELECT salesman_id
+    FROM salesman
+    WHERE city = 'New York');
+
+SELECT COUNT(*) FROM customer WHERE grade > (
+    SELECT AVG(grade)
+    FROM customer
+    WHERE city = 'New York');
+
+SELECT * FROM orders WHERE salesman_id IN (
+    SELECT salesman_id
+    FROM salesman
+    WHERE commission = (
+        SELECT MAX(commission)
+        FROM salesman));

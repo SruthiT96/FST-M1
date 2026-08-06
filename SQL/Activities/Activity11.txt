@@ -1,0 +1,19 @@
+SELECT a.name AS salesman_name, b.cust_name,
+COUNT(c.ord_no) AS total_orders
+FROM orders c
+JOIN customer b ON c.customer_id = b.customer_id
+JOIN salesman a ON a.salesman_id = a.salesman_id
+GROUP BY s.name, b.cust_name
+HAVING COUNT(c.ord_no) > 1
+ORDER BY a.name ASC, b.cust_name ASC;
+
+
+SELECT 
+    a.ord_date,
+    b.name AS salesman_name,
+    MAX(a.purch_amt) AS highest_on,
+    MIN(b.purch_amt) AS lowest_on
+FROM orders a
+JOIN salesman b ON a.salesman_id = b.salesman_id
+GROUP BY a.ord_date, b.name
+ORDER BY a.ord_date, b.name;

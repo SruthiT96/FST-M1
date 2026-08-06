@@ -1,0 +1,16 @@
+SELECT A.cust_name, B.name AS salesman_name FROM customer A JOIN salesman B ON A.salesman_id = B.salesman_id;
+
+SELECT A.cust_name, A.grade, B.name AS salesman_name FROM customer A JOIN salesman B ON A.salesman_id = B.salesman_id WHERE A.grade < 300 ORDER BY A.cust_name ASC;
+
+SELECT A.cust_name, A.name AS salesman_name, A.commission FROM customer A JOIN salesman B ON A.salesman_id = B.salesman_id WHERE B.commission > 0.12;
+
+SELECT
+    A.ord_no,
+    A.ord_date,
+    A.purch_amt,
+    B.cust_name,
+    C.name AS salesman_name,
+    C.commission
+FROM orders A
+JOIN customer B ON A.customer_id = B.customer_id
+JOIN salesman C ON B.salesman_id = A.salesman_id;
