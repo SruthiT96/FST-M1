@@ -83,7 +83,122 @@ public class SeleniumProject {
 		
 		System.out.println("Success");
 
+		//Directory
+
+        WebDriver driver = new EdgeDriver();
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+		driver.get("https://hrm.alchemy.hguy.co/");  		
+		
+		
+        driver.findElement(By.id("txtUsername")).sendKeys("orange"); 
+        driver.findElement(By.id("txtPassword")).sendKeys("5Nx#I6BK%r3$8vz0ch"); 
+        driver.findElement(By.id("btnLogin")).click();
+        
+        driver.findElement(By.id("menu_directory_viewDirectory")).click();
+		System.out.println("Success");
+		driver.close()
 	
+		//Qualification
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+		driver.get("https://hrm.alchemy.hguy.co/");  		
+		
+		
+        driver.findElement(By.id("txtUsername")).sendKeys("orange"); 
+        driver.findElement(By.id("txtPassword")).sendKeys("5Nx#I6BK%r3$8vz0ch"); 
+        driver.findElement(By.id("btnLogin")).click();
+        
+        driver.findElement(By.id("menu_pim_viewMyDetails")).click();
+        driver.findElement(By.xpath("//a[contains(@href,'viewQualifications')]")).click();
+        driver.findElement(By.id("addWorkExperience")).click();
+        driver.findElement(By.id("experience_employer")).sendKeys("IBM");
+        driver.findElement(By.id("experience_jobtitle")).sendKeys("Senior Test Specialist");
+        driver.findElement(By.id("experience_from_date")).clear();
+        driver.findElement(By.id("experience_from_date")).sendKeys("2020-02-10");
+        driver.findElement(By.id("btnWorkExpSave")).click();
+		System.out.println("Success");
+		driver.close()
+
+		// Apply Leave
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		Thread.sleep(2);
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+		driver.get("https://hrm.alchemy.hguy.co/");  		
+		
+		driver.findElement(By.id("txtUsername")).sendKeys("orange"); 
+        driver.findElement(By.id("txtPassword")).sendKeys("5Nx#I6BK%r3$8vz0ch"); 
+        driver.findElement(By.id("btnLogin")).click();
+                
+        driver.findElement(By.xpath("//span[text()='Apply Leave']/parent::a")).click();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        Select leaveType = new Select(driver.findElement(By.xpath("//select[@id='applyleave_txtLeaveType']")));
+        leaveType.selectByVisibleText("Holiday");
+        driver.findElement(By.id("applyleave_txtFromDate")).clear();        
+        driver.findElement(By.id("applyleave_txtFromDate")).sendKeys("2026-07-25");
+        driver.findElement(By.id("applyleave_txtToDate")).clear();
+        driver.findElement(By.id("applyleave_txtToDate")).sendKeys("2026-07-25");
+        driver.findElement(By.id("applyBtn")).click();
+        System.out.println("Success");
+		driver.close()
+
+		//Emergency contact
+
+		WebDriver driver = new EdgeDriver();
+		driver.manage().window().maximize();
+		Thread.sleep(2);
+		WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(5));
+		driver.get("https://hrm.alchemy.hguy.co/"); 
+		driver.findElement(By.id("txtUsername")).sendKeys("orange");
+        driver.findElement(By.id("txtPassword")).sendKeys("5Nx#I6BK%r3$8vz0ch");
+        driver.findElement(By.id("btnLogin")).click();
+        
+        driver.findElement(By.id("menu_pim_viewMyDetails")).click();
+        
+        driver.findElement(By.linkText("Emergency Contacts")).click();
+
+        List<WebElement> rows = driver.findElements(
+                By.xpath("//table[@id='emgcontact_list']/tbody/tr"));
+
+        System.out.println("===== Emergency Contacts =====");
+
+        for (WebElement row : rows) {
+
+            List<WebElement> cols =
+                    row.findElements(By.tagName("td"));
+
+            for (WebElement col : cols) {
+                System.out.print(col.getText() + " | ");
+            }
+
+            System.out.println();driver.findElement(By.id("txtUsername")).sendKeys("orange");
+        driver.findElement(By.id("txtPassword")).sendKeys("5Nx#I6BK%r3$8vz0ch");
+        driver.findElement(By.id("btnLogin")).click();
+        
+        driver.findElement(By.id("menu_pim_viewMyDetails")).click();
+        
+        driver.findElement(By.linkText("Emergency Contacts")).click();
+
+        List<WebElement> rows = driver.findElements(
+                By.xpath("//table[@id='emgcontact_list']/tbody/tr"));
+
+        System.out.println("===== Emergency Contacts =====");
+
+        for (WebElement row : rows) {
+
+            List<WebElement> cols =
+                    row.findElements(By.tagName("td"));
+
+            for (WebElement col : cols) {
+                System.out.print(col.getText() + " | ");
+            }
+
+            System.out.println();
+			driver.close();
+		   
+		}
 		
 	}
 
