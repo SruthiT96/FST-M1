@@ -1,4 +1,4 @@
-fruitsDict={"apple":50, "banana":10, "guava":20, "pineapple":15}
+fruitsDict={"apple":90, "banana":30, "guava":50, "pineapple":35}
 
 reqFruit=input("Enter the fruit you want to buy: ").lower();
 
